@@ -15,6 +15,7 @@ class ClientButton extends StatelessWidget {
           width: 300,
           height: 80,
           child: FloatingActionButton.extended(
+              backgroundColor: Colors.transparent,
               onPressed: () {
                 provider.selectedView = provider.viewAddClient;
               },

@@ -10,69 +10,7 @@ class DefaultView extends StatelessWidget {
     final provider = Provider.of<AppProvider>(context);
     return Column(
       children: [
-        Wrap(
-            children: List.generate(
-          48,
-          (index) => Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: SizedBox(
-                width: 135,
-                height: 80,
-                child: FloatingActionButton.extended(
-                    // tooltip: ,
-                    // -------------- COLOR DE BOTONES ----------------
-                    backgroundColor: (index == 0)
-                        ? Colors.green
-                        : (index <= 4)
-                            ? Colors.blue
-                            : (index == 5)
-                                ? Colors.red
-                                : (index >= 42) 
-                                    ? Colors.grey
-                                      : (index == 47)
-                                      ? Colors.purple
-                                        : Colors.amber,
-                    // -------------- FUNCION DE LOS BOTONES ----------------
-                    onPressed: () {
-                      (index == 0)
-                          ? provider.selectedView =
-                              provider.addProductCategoryView
-                          : (index <= 4)
-                              ? showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return const AlertDialog(
-                                        content: SizedBox(
-                                            width: 400,
-                                            height: 200,
-                                            child: Center(
-                                                child: Text('Categoria '))));
-                                  })
-                              : (index == 5)
-                                  ? provider.selectedView =
-                                      provider.categoriesView
-                                  : (index >= 42)
-                                      ? print('Option $index ')
-                                      : (index == 47)
-                                          ? print('All options')
-                                      : print('Add product');
-                    },
-
-                    // -------------- CHILD DE LOS BOTONES ----------------
-                    label: (index == 0)
-                        ? const Icon(Icons.add, size: 40)
-                        : (index <= 4)
-                            ? Text('Category $index ')
-                            : (index == 5)
-                                ? const Icon(Icons.more_horiz_outlined,
-                                    size: 40)
-                                : (index >= 42)
-                                    ? Text('Option $index ')
-                                      : (index == 47)
-                                        ? const Icon(Icons.more_horiz_outlined)
-                                          : Text('Product $index ')),
-              )),
-        )),
+        _CustomButton(provider: provider),
         Row(
           children: [
             CustomPrincipalButton(onPressed: () {  }, color: Colors.red, label: Text('Button 1'),),
@@ -83,6 +21,82 @@ class DefaultView extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+class _CustomButton extends StatelessWidget {
+  const _CustomButton({
+    super.key,
+    required this.provider,
+  });
+
+  final AppProvider provider;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+        children: List.generate(
+      48,
+      (index) => Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: SizedBox(
+            width: 135,
+            height: 80,
+            child: FloatingActionButton.extended(
+                // tooltip: ,
+                // -------------- COLOR DE BOTONES ----------------
+                backgroundColor: (index == 0)
+                    ? Colors.green
+                    : (index <= 4)
+                        ? Colors.blue
+                        : (index == 5)
+                            ? Colors.red
+                            : (index >= 42) 
+                                ? Colors.grey
+                                  : (index == 47)
+                                  ? Colors.purple
+                                    : Colors.amber,
+                // -------------- FUNCION DE LOS BOTONES ----------------
+                onPressed: () {
+                  (index == 0)
+                      ? provider.selectedView =
+                          provider.addProductCategoryView
+                      : (index <= 4)
+                          ? showDialog(
+                              context: context,
+                              builder: (context) {
+                                return const AlertDialog(
+                                    content: SizedBox(
+                                        width: 400,
+                                        height: 200,
+                                        child: Center(
+                                            child: Text('Categoria '))));
+                              })
+                          : (index == 5)
+                              ? provider.selectedView =
+                                  provider.categoriesView
+                              : ((index >= 42) && (index <= 46))
+                                  ? print('Option $index ')
+                                  : (index == 47)
+                                      ? print('All options')
+                                  : print('Add product');
+                },
+
+                // -------------- CHILD DE LOS BOTONES ----------------
+                label: (index == 0)
+                    ? const Icon(Icons.add, size: 40)
+                    : (index <= 4)
+                        ? Text('Category $index ')
+                        : (index == 5)
+                            ? const Icon(Icons.more_horiz_outlined,
+                                size: 40)
+                            : (index >= 42)
+                                ? Text('Option $index ')
+                                  : (index == 47)
+                                    ? const Icon(Icons.more_horiz_outlined)
+                                      : Text('Product $index ')),
+          )),
+    ));
   }
 }
 

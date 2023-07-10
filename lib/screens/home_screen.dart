@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:prueba_botones/config/theme/app_theme.dart';
 
 
 
 import '../providers/app_provider.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  static const String name = '/home'; 
   const HomeScreen({super.key});
 
   @override
@@ -14,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SEGMENTOS', style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: AppTheme().getTheme().colorScheme.primary,
         ),
       body: Row(
         children: [

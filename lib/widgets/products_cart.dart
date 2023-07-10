@@ -9,7 +9,7 @@ class ProductsCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 20),
-      height: 475,
+      height: 450,
       width: 530,
       decoration: BoxDecoration(
         color: Colors.amber,

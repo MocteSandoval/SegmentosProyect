@@ -15,11 +15,12 @@ class DefaultViewUser extends StatelessWidget {
       children: const [
         CustomSearchField(),
         SizedBox(height: 20),
-        ClientButton(),
+        Center(child: ClientButton()),
         SizedBox(height: 20),
         ProductsCart(),
-        SizedBox(height: 25),
+        SizedBox(height: 50),
         CustomDivider(),
+        
         CustomTableTotals(),
       ],
     );
