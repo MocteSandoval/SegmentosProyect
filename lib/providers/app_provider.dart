@@ -8,6 +8,8 @@ import 'package:prueba_botones/views/buttons/categories_view.dart';
 import 'package:prueba_botones/views/buttons/default_view.dart';
 import 'package:prueba_botones/views/buttons/products_view.dart';
 import 'package:prueba_botones/views/user_options/default_view_user.dart';
+import 'package:prueba_botones/widgets/custom_row_searchfields.dart';
+import 'package:prueba_botones/widgets/default_row_searchfields.dart';
 
 class AppProvider extends ChangeNotifier {
   Widget _selectedView = const DefaultView();
@@ -77,12 +79,51 @@ class AppProvider extends ChangeNotifier {
     _viewAddClient = viewAddClient;
     notifyListeners();
   }
+  
+//------------------------------------------------------------------------------------------------------------
+// Customm Row Search Fields 
+//------------------------------------------------------------------------------------------------------------
+ Widget _defaultRowSearchFields = const DefaultRowSearchFields();
 
+  Widget get defaultRowSearchFields => _defaultRowSearchFields;
 
+  set defaultRowSearchFields(Widget defaultRowSearchFields) {
+    _defaultRowSearchFields = defaultRowSearchFields;
+    notifyListeners();
+  }
 
+//------------------------------------------------------------------------------------------------------------
 
+//------------------------------------------------------------------------------------------------------------
 
+  Widget _tapClient =  const TapClient();
 
+  Widget get tapClient => _tapClient;
+
+  set tapClient(Widget tapClient) {
+    _tapClient = tapClient;
+    notifyListeners();
+  }
+
+//------------------------------------------------------------------------------------------------------------
+
+  Widget _tapProduct = const TapProduct();
+
+  Widget get tapProduct => _tapProduct;
+
+  set tapProduct(Widget tapProduct) {
+    _tapProduct = tapProduct;
+    notifyListeners();
+  }
+
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------
 }

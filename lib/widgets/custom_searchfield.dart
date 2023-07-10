@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
-class CustomSearchField extends StatelessWidget {
-  const CustomSearchField({
+
+class SearchField extends StatelessWidget {
+  final String type;
+  final void Function() onTap;
+  IconButton? iconButton;
+
+  SearchField({
     super.key,
+    this.iconButton,
+    required this.type,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(top: 10, left: 20),
-        child: Row(
-          children: [
-            Expanded(
-              child: searchField('Cliente'),
-            ),
-            
-            Expanded(
-                child: searchField('Producto'),),
-          ],
-        ));
-  }
-
- 
-
-  Widget searchField(String type) {
-    return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: TextField(
+        onTap: onTap,
         decoration: InputDecoration(
-          hintText: 'Buscar $type',
+          suffixIcon: iconButton,
+          hintText: '$type',
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
