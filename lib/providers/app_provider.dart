@@ -60,7 +60,7 @@ class AppProvider extends ChangeNotifier {
   }
 //------------------------------------------------------------------------------------------------------------
 
-  Widget _defaultViewUserOptions = DefaultViewUser();
+  Widget _defaultViewUserOptions = const DefaultViewUser();
 
   Widget get defaultViewUserOptions => _defaultViewUserOptions;
 
