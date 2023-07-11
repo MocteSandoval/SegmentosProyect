@@ -10,34 +10,24 @@ class ClientButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Container(
+    return InkWell(
+      onTap: (){
+        provider.selectedView = provider.viewAddClient;
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20),
+        child: SizedBox(
         
-        decoration:const BoxDecoration(
-          
-          boxShadow:[
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 20,
-              offset: Offset(2, 5),
-            ),
-          ]
-        ),
-          width: 450,
-          height: 80,
-          child: CustomButton(onPressed: (){
-            provider.selectedView = provider.viewAddClient;
-          }, color: Colors.black,
-          child:  Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children:const [
-              CircleAvatar(radius: 70, child: Text('PG'),),
-              SizedBox(width: 10),
-              Expanded(child: Text('Público en general', style: TextStyle(fontSize: 25, color: Colors.white),)),
-            ],
-          ),)),
+            width: 450,
+            height: 80,
+            child: Row(
+              children: const [
+                CircleAvatar(radius: 50,child: Text('GP', style: TextStyle(fontSize: 30),),),
+                SizedBox(width: 10),
+                Text('General public', style: TextStyle(fontSize: 25),),
+              ]
+              )),
+      ),
     );
   }
 }

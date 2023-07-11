@@ -13,15 +13,15 @@ class DefaultViewUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: const [
         CustomRowSearchfields(),
         SizedBox(height: 20),
         Center(child: ClientButton()),
         SizedBox(height: 20),
         ProductsCart(),
-        SizedBox(height: 50),
+        SizedBox(height: 30),
         CustomDivider(),
-        
         CustomTableTotals(),
       ],
     );

@@ -12,7 +12,7 @@ class ProductsCart extends StatelessWidget {
     final numberFormat = NumberFormat.currency(locale: 'es_MX', symbol: "\$");
     return Container(
         margin: const EdgeInsets.only(left: 20),
-        height: 450,
+        height: 475,
         width: 530,
         decoration: BoxDecoration(
           color: Colors.amber,
