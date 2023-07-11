@@ -47,6 +47,32 @@ class DefaultView extends StatelessWidget {
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
 
+class AddProductCategoryButton extends StatelessWidget {
+  const AddProductCategoryButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = Provider.of<AppProvider>(context);
+    return CustomButton(
+        onPressed: () {
+          provider.selectedView = provider.addProductCategoryView;
+        },
+        color: const Color.fromARGB(255, 131, 122, 122),
+        child: const Center(
+          child: Icon(
+            Icons.add_circle_outline,
+            size: 50,
+          ),
+        ));
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+
 class CategoryButton extends StatelessWidget {
   const CategoryButton({
     super.key,
@@ -62,66 +88,6 @@ class CategoryButton extends StatelessWidget {
   }
 }
 
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-
-class ProductButton extends StatelessWidget {
-  const ProductButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomButton(
-        onPressed: () {},
-        color: Colors.amber,
-        child: const Center(
-          child: Text('Product'),
-        ));
-  }
-}
-
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-
-class OptionButton extends StatelessWidget {
-  const OptionButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomButton(
-        onPressed: () {},
-        color: Colors.pink,
-        child: const Center(child: Text('Option')));
-  }
-}
-
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-
-class AddProductCategoryButton extends StatelessWidget {
-  const AddProductCategoryButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final provider = Provider.of<AppProvider>(context);
-    return CustomButton(
-        onPressed: () {
-
-          provider.selectedView = provider.addProductCategoryView;
-        },
-        color: Colors.white,
-        child: const Center(
-          child: Icon(
-            Icons.add_circle_outline,
-            size: 50,
-          ),
-        ));
-  }
-}
 
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
@@ -144,6 +110,23 @@ class AllCategoriesButton extends StatelessWidget {
             size: 45,
             color: Colors.white,
           ),
+        ));
+  }
+}
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+
+class ProductButton extends StatelessWidget {
+  const ProductButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomButton(
+        onPressed: () {},
+        color: Colors.amber,
+        child: const Center(
+          child: Text('Product'),
         ));
   }
 }
@@ -172,6 +155,24 @@ class AllProductsButton extends StatelessWidget {
         ));
   }
 }
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+
+class OptionButton extends StatelessWidget {
+  const OptionButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomButton(
+        onPressed: () {},
+        color: Colors.pink,
+        child: const Center(child: Text('Option')));
+  }
+}
+
+
+
 
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
@@ -182,8 +183,11 @@ class AllOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppProvider>(context);
     return CustomButton(
-        onPressed: () {},
+        onPressed: () {
+          provider.selectedView = provider.viewOptions;
+          },
         color: Colors.blueGrey,
         child: const Center(
           child: Text('All Options'),

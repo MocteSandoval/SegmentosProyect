@@ -6,6 +6,7 @@ import 'package:prueba_botones/views/buttons/add_product_category_view.dart';
 
 import 'package:prueba_botones/views/buttons/categories_view.dart';
 import 'package:prueba_botones/views/buttons/default_view.dart';
+import 'package:prueba_botones/views/buttons/options_view.dart';
 import 'package:prueba_botones/views/buttons/products_view.dart';
 import 'package:prueba_botones/views/user_options/default_view_user.dart';
 import 'package:prueba_botones/widgets/custom_row_searchfields.dart';
@@ -79,6 +80,17 @@ class AppProvider extends ChangeNotifier {
     _viewAddClient = viewAddClient;
     notifyListeners();
   }
+//------------------------------------------------------------------------------------------------------------
+
+  Widget _viewOptions = const OptionsView();
+
+  Widget get viewOptions => _viewOptions;
+
+  set viewOptions(Widget viewOptions) {
+    _viewOptions = viewOptions;
+    notifyListeners();
+  }
+  
   
 //------------------------------------------------------------------------------------------------------------
 // Customm Row Search Fields 
