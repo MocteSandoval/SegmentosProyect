@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:prueba_botones/providers/app_provider.dart';
 import 'package:prueba_botones/views/buttons/products_view.dart';
 
 class ProductsCart extends StatelessWidget {
@@ -10,6 +12,7 @@ class ProductsCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final numberFormat = NumberFormat.currency(locale: 'es_MX', symbol: "\$");
+    final provider = Provider.of<AppProvider>(context);
     return Container(
         margin: const EdgeInsets.only(left: 20),
         height: 475,
@@ -19,6 +22,7 @@ class ProductsCart extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: ListView.builder(
+          itemCount: provider.productsAdded.length,
           itemBuilder: (BuildContext context, int index) {
             return FutureBuilder(builder: (context, snapshot) {
               return AddProductToCart(
