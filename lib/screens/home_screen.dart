@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SEGMENTOS', style: TextStyle(color: Colors.white),),
-        backgroundColor: AppTheme().getTheme().colorScheme.primary,
+        backgroundColor: Colors.black54,
         ),
       body: Row(
         children: [

@@ -58,24 +58,3 @@ class ProductsView extends StatelessWidget {
   }
 }
 
-class AddProductToCart extends StatelessWidget {
-  final IconData typeOfProduct;
-  final String productName;
-  final String productPrice;
-
-  const AddProductToCart(
-      {super.key,
-      required this.typeOfProduct,
-      required this.productName,
-      required this.productPrice});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(typeOfProduct),
-      title: Text(productName),
-      subtitle: Text(productPrice),
-      trailing: const Icon(Icons.delete),
-    );
-  }
-}

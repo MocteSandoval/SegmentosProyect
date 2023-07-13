@@ -139,6 +139,15 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addToCart(Widget product) {
+    _productsAdded.add(product);
+    notifyListeners();
+  }
+  void deletToCart(Widget product) {
+    _productsAdded.remove(product);
+    notifyListeners();
+  }
+
 
 
 //------------------------------------------------------------------------------------------------------------

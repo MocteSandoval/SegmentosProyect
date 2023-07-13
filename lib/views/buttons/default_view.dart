@@ -24,7 +24,7 @@ class DefaultView extends StatelessWidget {
             return const AllCategoriesButton();
           }
           if (index <= 40) {
-            return const ProductButton();
+            return  ProductButton(index: index,);
           }
           if (index <= 41) {
             return const AllProductsButton();
@@ -88,7 +88,6 @@ class CategoryButton extends StatelessWidget {
   }
 }
 
-
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
@@ -118,15 +117,19 @@ class AllCategoriesButton extends StatelessWidget {
 //-------------------------------------------------------------------------------------------------------------------
 
 class ProductButton extends StatelessWidget {
-  const ProductButton({super.key});
+  final int index;
+  const ProductButton({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppProvider>(context);
     return CustomButton(
-        onPressed: () {},
+        onPressed: () {
+          provider.addToCart(Container());
+        },
         color: Colors.amber,
-        child: const Center(
-          child: Text('Product'),
+        child: Center(
+          child: Text('Product $index'),
         ));
   }
 }
@@ -171,11 +174,6 @@ class OptionButton extends StatelessWidget {
   }
 }
 
-
-
-
-
-
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
@@ -189,7 +187,7 @@ class AllOptions extends StatelessWidget {
     return CustomButton(
         onPressed: () {
           provider.selectedView = provider.viewOptions;
-          },
+        },
         color: Colors.blueGrey,
         child: const Center(
           child: Text('All Options'),

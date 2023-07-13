@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba_botones/providers/app_provider.dart';
 import 'package:prueba_botones/views/buttons/products_view.dart';
+import 'package:prueba_botones/widgets/add_product_to_cart.dart';
 
 class ProductsCart extends StatelessWidget {
   const ProductsCart({
@@ -24,13 +25,11 @@ class ProductsCart extends StatelessWidget {
         child: ListView.builder(
           itemCount: provider.productsAdded.length,
           itemBuilder: (BuildContext context, int index) {
-            return FutureBuilder(builder: (context, snapshot) {
-              return AddProductToCart(
-                typeOfProduct: Icons.point_of_sale_rounded,
-                productName: 'Product $index',
-                productPrice: numberFormat.format(100),
-              );
-            });
+            return AddProductToCart(
+              index: index,
+                typeOfProduct: Icons.add,
+                productName: 'Product ',
+                productPrice: numberFormat.format(100), quantity: 1,);
           },
         ));
   }
