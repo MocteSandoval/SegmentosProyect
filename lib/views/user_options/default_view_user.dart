@@ -20,7 +20,7 @@ class DefaultViewUser extends StatelessWidget {
         Center(child: ClientButton()),
         SizedBox(height: 20),
         ProductsCart(),
-        SizedBox(height: 30),
+        SizedBox(height: 25),
         CustomDivider(),
         CustomTableTotals(),
       ],

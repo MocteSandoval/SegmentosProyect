@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba_botones/providers/app_provider.dart';
+import 'package:prueba_botones/providers/cart_products_provider.dart';
 import 'package:prueba_botones/widgets/custom_button.dart';
 // import 'package:provider/provider.dart';
 // import 'package:prueba_botones/providers/app_provider.dart';
@@ -122,7 +123,8 @@ class ProductButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppProvider>(context);
+    
+    final provider = Provider.of<CartProductsProvider>(context);
     return CustomButton(
         onPressed: () {
           provider.addToCart(Container());

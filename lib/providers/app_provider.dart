@@ -130,23 +130,9 @@ class AppProvider extends ChangeNotifier {
 
 //------------------------------------------------------------------------------------------------------------
 
-  List<Widget> _productsAdded = [];
+  
 
-  List<Widget> get productsAdded => _productsAdded;
-
-  set productsAdded(List<Widget> productsAdded) {
-    _productsAdded = productsAdded;
-    notifyListeners();
-  }
-
-  void addToCart(Widget product) {
-    _productsAdded.add(product);
-    notifyListeners();
-  }
-  void deletToCart(Widget product) {
-    _productsAdded.remove(product);
-    notifyListeners();
-  }
+ 
 
 
 

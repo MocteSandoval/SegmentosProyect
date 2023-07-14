@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:prueba_botones/providers/cart_products_provider.dart';
 
 import '../providers/app_provider.dart';
 
@@ -15,32 +16,49 @@ class AddProductToCart extends StatelessWidget {
       required this.typeOfProduct,
       required this.productName,
       required this.productPrice,
-      required this.quantity, required this.index});
+      required this.quantity,
+      required this.index});
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppProvider>(context);
+    
+    final cartProvider = Provider.of<CartProductsProvider>(context);
     return ListTile(
-      leading: Text('$quantity'),
+      onTap: (){},
+      iconColor: Colors.white,
+      textColor: Colors.white,
+      leading: CircleAvatar(
+        child: Text('$quantity'),
+      ),
       title: Text(productName),
       subtitle: Text(productPrice),
       trailing: FittedBox(
         fit: BoxFit.cover,
         child: Row(
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-            SizedBox(width: 5),
             IconButton(
                 onPressed: () {
-                  provider.deletToCart(provider.productsAdded[index]);
+                  cartProvider.deletToCart(cartProvider.productsAdded[index]);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.delete,
                   color: Colors.red,
                 )),
-            SizedBox(width: 5),
+                const SizedBox(width: 5),
             IconButton(
-                onPressed: () {}, icon: Icon(Icons.info_outline_rounded)),
+                onPressed: () {
+                  cartProvider.addQuantity(quantity);
+                },
+                icon: const Icon(Icons.add)),
+            const SizedBox(width: 5),
+            IconButton(
+              onPressed: () {
+              cartProvider.deleteQuantity(quantity);
+            }, icon: const Icon(Icons.remove)),
+            
+            const SizedBox(width: 5),
+            IconButton(
+                onPressed: () {}, icon: const Icon(Icons.info_outline_rounded)),
           ],
         ),
       ),
