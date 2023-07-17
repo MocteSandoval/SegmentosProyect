@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:prueba_botones/config/theme/app_theme.dart';
-
-
-
 import '../providers/app_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,12 +20,12 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child:Padding(
-              padding: const EdgeInsets.all(2),
+              padding: const EdgeInsets.all(1),
               child: appProvider.defaultViewUserOptions) ),
             Expanded(
             flex: 3,
             child:Padding(
-              padding: const EdgeInsets.all(2),
+              padding: const EdgeInsets.all(1),
               child: appProvider.viewSelected
               //  appProvider.selectedView
               

@@ -9,8 +9,6 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Padding(
       padding: const EdgeInsets.all(3.0),
       child: SizedBox(
@@ -23,7 +21,7 @@ class CustomButton extends StatelessWidget {
               child: InkWell(
                 onTap: onPressed,
                 child:  Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: child
                 ),
               )),

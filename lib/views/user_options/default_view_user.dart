@@ -11,19 +11,22 @@ class DefaultViewUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: const [
-        CustomRowSearchfields(),
-        SizedBox(height: 20),
-        Center(child: ClientButton()),
-        SizedBox(height: 20),
-        ProductsCart(),
-        SizedBox(height: 25),
-        CustomDivider(),
-        CustomTableTotals(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top:10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: const [
+          CustomRowSearchfields(),
+          SizedBox(height: 10),
+          Center(child: ClientButton()),
+          SizedBox(height: 10),
+          ProductsCart(),
+          SizedBox(height: 10),
+          CustomDivider(),          
+          CustomTableTotals(),
+        ],
+      ),
     );
   }
 }

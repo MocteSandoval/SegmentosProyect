@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba_botones/providers/cart_products_provider.dart';
 
-import '../providers/app_provider.dart';
+
 
 class AddProductToCart extends StatelessWidget {
-  final IconData typeOfProduct;
+  
   final String productName;
   final String productPrice;
   final int quantity;
@@ -13,7 +13,7 @@ class AddProductToCart extends StatelessWidget {
 
   const AddProductToCart(
       {super.key,
-      required this.typeOfProduct,
+      
       required this.productName,
       required this.productPrice,
       required this.quantity,
@@ -24,12 +24,16 @@ class AddProductToCart extends StatelessWidget {
     
     final cartProvider = Provider.of<CartProductsProvider>(context);
     return ListTile(
+      
       onTap: (){},
       iconColor: Colors.white,
       textColor: Colors.white,
       leading: CircleAvatar(
         child: Text('$quantity'),
       ),
+      hoverColor: Colors.white,
+      focusColor: Colors.white,
+      splashColor: Colors.white,
       title: Text(productName),
       subtitle: Text(productPrice),
       trailing: FittedBox(

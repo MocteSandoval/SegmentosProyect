@@ -21,7 +21,7 @@ class ProductsCart extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
         margin: const EdgeInsets.only(left: 20),
-        height: 475,
+        height: 510,
         width: 530,
         decoration: BoxDecoration(
           boxShadow: [
@@ -53,7 +53,7 @@ class ProductsCart extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return AddProductToCart(
                     index: index,
-                    typeOfProduct: Icons.add,
+                    
                     productName: 'Product ',
                     productPrice: numberFormat.format(100),
                     quantity: 1,
