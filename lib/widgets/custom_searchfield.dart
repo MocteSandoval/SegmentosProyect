@@ -4,12 +4,13 @@ class SearchField extends StatelessWidget {
   final String type;
   final void Function() onTap;
   IconButton? iconButton;
+  final bool autofocus;
 
   SearchField({
     super.key,
     this.iconButton,
     required this.type,
-    required this.onTap,
+    required this.onTap, required this.autofocus,
   });
 
   @override
@@ -17,6 +18,7 @@ class SearchField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: TextField(
+        autofocus: autofocus,
         onTap: onTap,
         decoration: InputDecoration(
           suffixIcon: iconButton,

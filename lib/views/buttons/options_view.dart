@@ -43,9 +43,9 @@ class OptionsView extends StatelessWidget {
                         ))
                     : CustomButton(
                         onPressed: () {},
-                        color: Colors.pink,
+                        color:const Color.fromARGB(255, 104, 1, 1),
                         child: Center(
-                          child: Text('Option $index'),
+                          child: Text('Option $index', style: TextStyle(color: Colors.white),),
                         ));
       }),
     );

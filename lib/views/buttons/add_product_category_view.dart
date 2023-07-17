@@ -20,7 +20,7 @@ class AddProductCategoryView extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 50,
-                color: Colors.blueGrey,
+                color: const Color.fromARGB(255, 37, 56, 66),
               ),
               const Positioned(
                   top: 3,
@@ -38,13 +38,13 @@ class AddProductCategoryView extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           ListTile(
-            leading: const Icon(Icons.inventory_2),
+            leading: const Icon(Icons.inventory_2, color: Colors.black),
             title: const Text('Product'),
             onTap: () {},
           ),
           const SizedBox(height: 20),
           ListTile(
-              leading: const Icon(Icons.category),
+              leading: const Icon(Icons.category, color: Colors.black),
               title: const Text('Category'),
               onTap: () {}),
           const SizedBox(height: 50),

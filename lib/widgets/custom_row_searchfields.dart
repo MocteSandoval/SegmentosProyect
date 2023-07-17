@@ -28,13 +28,15 @@ class TapClient extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
     return Padding(
-        padding: const EdgeInsets.only(top: 10, left: 20),
+        padding: const EdgeInsets.only(left: 10),
         child: Row(
           children: [
             Expanded(
               child: SearchField(
+                autofocus: true,
                 iconButton: IconButton(
                   onPressed: (){
+
                     provider.defaultRowSearchFields = const DefaultRowSearchFields();
                   },
                   icon: const Icon(Icons.close),
@@ -56,11 +58,12 @@ class TapProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
     return Padding(
-        padding: const EdgeInsets.only(top: 10, left: 20),
+        padding: const EdgeInsets.only(left: 20),
         child: Row(
           children: [
             Expanded(
               child: SearchField(
+                autofocus: true,
                 iconButton: IconButton(
                   onPressed: (){
                     provider.defaultRowSearchFields = const DefaultRowSearchFields();

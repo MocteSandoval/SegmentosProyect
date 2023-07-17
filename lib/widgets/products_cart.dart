@@ -52,8 +52,8 @@ class ProductsCart extends StatelessWidget {
                 itemCount: carProvider.productsAdded.length,
                 itemBuilder: (BuildContext context, int index) {
                   return AddProductToCart(
-                    index: index,
-                    
+                    hoverColor: Colors.grey,
+                    index: index,                
                     productName: 'Product ',
                     productPrice: numberFormat.format(100),
                     quantity: 1,

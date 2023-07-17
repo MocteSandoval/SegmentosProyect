@@ -49,9 +49,9 @@ class ProductsView extends StatelessWidget {
                         ))
                     : CustomButton(
                         onPressed: () {},
-                        color: Colors.blue,
+                        color: Colors.blueGrey[800]!,
                         child: Center(
-                          child: Text('Product $index'),
+                          child: Text('Product $index',style: TextStyle(color: Colors.white),),
                         ));
       }),
     );

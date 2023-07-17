@@ -25,7 +25,9 @@ class DefaultView extends StatelessWidget {
             return const AllCategoriesButton();
           }
           if (index <= 40) {
-            return  ProductButton(index: index,);
+            return ProductButton(
+              index: index,
+            );
           }
           if (index <= 41) {
             return const AllProductsButton();
@@ -36,8 +38,36 @@ class DefaultView extends StatelessWidget {
           if (index == 47) {
             return const AllOptions();
           }
+          if(index == 48){
+            return PrincipalButtons(
+              color: const Color.fromARGB(255, 165, 133, 39),
+              onPressed: (){},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(Icons.people_alt, size: 35,color: Colors.white,),
+                  SizedBox(width: 10),
+                  Text('Cerrar sesión', style: TextStyle(fontSize: 18,color: Colors.white,),)
+                ],
+              ),
+            );
+          }
+          if(index == 49){
+            return PrincipalButtons(
+              color: Colors.red[600]!,
+              onPressed: (){},
+              child: const Text('Devolucion', style: TextStyle(fontSize: 18,color: Colors.white,)),
+            );
+          }
+          if(index == 50){
+            return PrincipalButtons(
+              color:const Color.fromARGB(255, 39, 110, 41),
+              onPressed: (){},
+              child: const Text('Pagar', style: TextStyle(fontSize: 18,color: Colors.white,)),
+            );
+          }
 
-          return const PrincipalButtons();
+          return  PrincipalButtons(color: Colors.black, onPressed: () {  }, child: Container(),);
         }),
       ),
     );
@@ -60,11 +90,12 @@ class AddProductCategoryButton extends StatelessWidget {
         onPressed: () {
           provider.selectedView = provider.addProductCategoryView;
         },
-        color: const Color.fromARGB(255, 131, 122, 122),
+        color: Colors.black,
         child: const Center(
           child: Icon(
             Icons.add_circle_outline,
             size: 50,
+            color: Colors.white,
           ),
         ));
   }
@@ -81,10 +112,16 @@ class CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppProvider>(context);
     return CustomButton(
-      onPressed: () {},
-      color: Colors.grey,
-      child: const Text('Category'),
+      onPressed: () {
+        provider.selectedView = provider.categoryView;
+      },
+      color: Colors.black87,
+      child: const Text(
+        'Category',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
@@ -103,7 +140,7 @@ class AllCategoriesButton extends StatelessWidget {
         onPressed: () {
           provider.selectedView = provider.categoriesView;
         },
-        color: Colors.green,
+        color: Color.fromARGB(255, 21, 102, 21),
         child: const Center(
           child: Icon(
             Icons.more_vert_rounded,
@@ -123,15 +160,17 @@ class ProductButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final provider = Provider.of<CartProductsProvider>(context);
     return CustomButton(
         onPressed: () {
           provider.addToCart(Container());
         },
-        color: Colors.amber,
+        color: Colors.blueGrey[800]!,
         child: Center(
-          child: Text('Product $index'),
+          child: Text(
+            'Product $index',
+            style: TextStyle(color: Colors.white),
+          ),
         ));
   }
 }
@@ -171,8 +210,12 @@ class OptionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomButton(
         onPressed: () {},
-        color: Colors.pink,
-        child: const Center(child: Text('Option')));
+        color: Color.fromARGB(255, 104, 1, 1),
+        child: const Center(
+            child: Text(
+          'Option',
+          style: TextStyle(color: Colors.white),
+        )));
   }
 }
 
@@ -192,7 +235,7 @@ class AllOptions extends StatelessWidget {
         },
         color: Colors.blueGrey,
         child: const Center(
-          child: Text('All Options'),
+          child: Icon(Icons.menu_rounded),
         ));
   }
 }
@@ -202,15 +245,18 @@ class AllOptions extends StatelessWidget {
 //-------------------------------------------------------------------------------------------------------------------
 
 class PrincipalButtons extends StatelessWidget {
-  const PrincipalButtons({super.key});
+  final Color color;
+  final void Function() onPressed;
+  final Widget child;
+  const PrincipalButtons({super.key, required this.color, required this.onPressed, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return CustomPrincipalButton(
-        onPressed: () {},
-        color: Colors.red,
-        child: const Center(
-          child: Text('Principal Option'),
+        onPressed: onPressed,
+        color: color,
+        child:  Center(
+          child:child ,
         ));
   }
 }

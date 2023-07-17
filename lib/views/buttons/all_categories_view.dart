@@ -4,63 +4,51 @@ import 'package:prueba_botones/widgets/custom_button.dart';
 
 import '../../providers/app_provider.dart';
 
-class CategoriesView extends StatelessWidget {
-  const CategoriesView({super.key});
+class AllCategoriesView extends StatelessWidget {
+  const AllCategoriesView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
     return Wrap(
-      children: List.generate(
-          54,
-          (index) => CustomButton(
-              onPressed: () {
-                (index == 0)
-                    ? provider.selectedView = provider.defaultView
-                    : (index == 52)
-                        ? print('izquierda')
-                        : (index == 53)
-                            ? print('derecha')
-                            : () {};
-              },
-              color: (index == 0)
-                  ? Colors.black
-                  : (index == 52)
-                      ? Colors.black
-                      : (index == 53)
-                          ? Colors.black
-                          : Colors.blue,
-              child: (index == 0)
-              ? const Center(
-                  child: Icon(
-                    Icons.home_filled,
-                    size: 50,
-                    color: Colors.white,
-                  ),
-                )
-                :(index == 52)
-                ? const Center(
-                  child: Icon(
-                    Icons.arrow_circle_left,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                )
-                :(index == 53)
-                ? const Center(
-                  child: Icon(
-                    Icons.arrow_circle_right,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                )
-              
-              
-              
-              :Center(
-                child: Text('Category $index'),
-              ))),
-    );
+        children: List.generate(54, (index) {
+
+          if(index == 0){
+            return CustomButton(
+            onPressed: (){
+              provider.selectedView = provider.defaultView;
+            }, 
+            color: Colors.black, 
+            child: const Center(child: Icon(Icons.home, size: 50, color: Colors.white,)));
+          }
+          if(index == 52){
+            return CustomButton(
+                        onPressed: () {},
+                        color: Color.fromARGB(153, 197, 191, 191),
+                        child: const Center(
+                          child: Icon(
+                            Icons.arrow_circle_left,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                        ));
+          }
+          if(index == 53){
+            return CustomButton(
+                        onPressed: () {},
+                        color: Color.fromARGB(153, 197, 191, 191),
+                        child: const Center(
+                          child: Icon(
+                            Icons.arrow_circle_right,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                        ));
+          }
+      return CustomButton(
+          onPressed: () {}, color: Colors.black87,
+          child: const Text('Category', style: TextStyle(color: Colors.white),));
+    }));
   }
 }
 

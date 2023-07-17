@@ -12,6 +12,7 @@ class DefaultRowSearchFields extends StatelessWidget {
       children: [
         Expanded(
           child: SearchField(
+            autofocus: true,
             type: 'Client',
             onTap: () {
               provider.defaultRowSearchFields = provider.tapClient;
@@ -20,6 +21,7 @@ class DefaultRowSearchFields extends StatelessWidget {
         ),
         Expanded(
           child: SearchField(
+            autofocus: false,
             type: 'Product',
             onTap: () {
               provider.defaultRowSearchFields = provider.tapProduct;

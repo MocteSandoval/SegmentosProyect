@@ -3,12 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_botones/views/buttons/add_client_view.dart';
 import 'package:prueba_botones/views/buttons/add_product_category_view.dart';
+import 'package:prueba_botones/views/buttons/all_categories_view.dart';
+import 'package:prueba_botones/views/buttons/category_view.dart';
 
-import 'package:prueba_botones/views/buttons/categories_view.dart';
+
 import 'package:prueba_botones/views/buttons/default_view.dart';
 import 'package:prueba_botones/views/buttons/options_view.dart';
 import 'package:prueba_botones/views/buttons/products_view.dart';
 import 'package:prueba_botones/views/user_options/default_view_user.dart';
+import 'package:prueba_botones/views/user_options/product_info_view.dart';
 import 'package:prueba_botones/widgets/custom_row_searchfields.dart';
 import 'package:prueba_botones/widgets/default_row_searchfields.dart';
 
@@ -31,7 +34,7 @@ class AppProvider extends ChangeNotifier {
   }
 
 //------------------------------------------------------------------------------------------------------------
-  Widget _viewCategories = const CategoriesView();
+  Widget _viewCategories = const AllCategoriesView();
 
   Widget get categoriesView => _viewCategories;
 
@@ -72,6 +75,19 @@ class AppProvider extends ChangeNotifier {
 
 //------------------------------------------------------------------------------------------------------------
 
+Widget _productsInfoView = const ProductInfoView();
+
+  Widget get productsInfoView => _productsInfoView;
+
+  set productsInfoView(Widget productsInfoView) {
+    _productsInfoView = productsInfoView;
+    notifyListeners();
+  }
+
+
+
+//------------------------------------------------------------------------------------------------------------
+
   Widget _viewAddClient = const AddClientView();
 
   Widget get viewAddClient => _viewAddClient;
@@ -90,8 +106,16 @@ class AppProvider extends ChangeNotifier {
     _viewOptions = viewOptions;
     notifyListeners();
   }
-  
-  
+//------------------------------------------------------------------------------------------------------------
+  Widget _categoryView = const CategoryView();  
+
+  Widget get categoryView => _categoryView;
+
+  set categoryView(Widget categoryView) {
+    _categoryView = categoryView;
+    notifyListeners();
+  }
+
 //------------------------------------------------------------------------------------------------------------
 // Customm Row Search Fields 
 //------------------------------------------------------------------------------------------------------------

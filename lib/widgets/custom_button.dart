@@ -39,7 +39,16 @@ class CustomPrincipalButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      decoration:const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+blurRadius: 10,
+offset: Offset(1, 6),
+color: Colors.black
+          )
+        ]
+      ),
       padding: const EdgeInsets.all(3.0),
       child: SizedBox(
         width: 278,
