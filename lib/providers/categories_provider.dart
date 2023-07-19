@@ -11,7 +11,7 @@ class CategoriesProvider extends ChangeNotifier{
   bool initialLoading = true;
 
   Future<void> loadCategories() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 100));
     final List<Category> dataCategories = categoriesD
         .map((category) => CategoryModel.fromJson(category).toCategoryEntitie())
         .toList();
@@ -19,6 +19,7 @@ class CategoriesProvider extends ChangeNotifier{
     initialLoading = false;
     notifyListeners();
   }
+  
 
 
 

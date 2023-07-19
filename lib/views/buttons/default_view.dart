@@ -20,7 +20,7 @@ class DefaultView extends StatelessWidget {
             return const AddProductCategoryButton();
           }
           if ((index >= 1) && (index <= 4)) {
-            return CategoryButton(index: index-1,);
+            return CategoryButton(index: index,);
           }
           if (index == 5) {
             return const AllCategoriesButton();
@@ -129,17 +129,15 @@ class AddProductCategoryButton extends StatelessWidget {
 //-------------------------------------------------------------------------------------------------------------------
 
 class CategoryButton extends StatelessWidget {
-  int index;
-   CategoryButton({
-    this.index = 0,
-    super.key,
+  final int index;
+  const CategoryButton({
+    super.key, required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
     final categoryProvider = Provider.of<CategoriesProvider>(context);
-    List categories = categoryProvider.categories;
 
     return CustomButton(
       onPressed: () {
@@ -147,7 +145,7 @@ class CategoryButton extends StatelessWidget {
       },
       color: Colors.black87,
       child: Text(
-        categories[index].category,
+        'Category $index',
         style: TextStyle(color: Colors.white),
       ),
     );
@@ -164,6 +162,7 @@ class AllCategoriesButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
+
     return CustomButton(
         onPressed: () {
           provider.selectedView = provider.categoriesView;

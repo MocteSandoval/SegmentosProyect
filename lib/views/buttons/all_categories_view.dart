@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:prueba_botones/widgets/custom_button.dart';
 
 import '../../providers/app_provider.dart';
+import '../../providers/categories_provider.dart';
 
 class AllCategoriesView extends StatelessWidget {
   const AllCategoriesView({super.key});
@@ -10,6 +11,7 @@ class AllCategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
+    final categoriesProvider = Provider.of<CategoriesProvider>(context);
     return Wrap(
         children: List.generate(54, (index) {
 
@@ -47,7 +49,9 @@ class AllCategoriesView extends StatelessWidget {
           }
       return CustomButton(
           onPressed: () {}, color: Colors.black87,
-          child: const Text('Category', style: TextStyle(color: Colors.white),));
+          child:  Text(
+             categoriesProvider.categories[index].category, 
+          style: TextStyle(color: Colors.white),));
     }));
   }
 }
