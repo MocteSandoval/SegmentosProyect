@@ -1,78 +1,51 @@
-{
-  "data": {
-    "categories": [
-      {
-        "Id": "1",
-        "category": "Refrescos"
-      },
-      {
-        "Id": "2",
-        "category": "Recargas"
-      },
-      {
-        "Id": "3",
-        "category": "Medicinas"
-      },
-      {
-        "Id": "4",
-        "category": "Papeleria"
-      },
-      {
-        "Id": "5",
-        "category": "Varios",
-        "products": [
-          
-        ]
-      }
-    ],
-    "items": [
-      {
-        "id": "001",
+List<Map<String, dynamic>> productsD = [
+   {
+        "id": 001,
         "item": "COCA COLA 355 ML",
         "price": 10.1,
-        "categoryId": "1"
+        "categoryId": 1
       },
       {
-        "id": "002",
+        "id": 002,
         "item": "COCA COLA 600 ML",
         "price": 12,
-        "categoryId": "1"
+        "categoryId": 1
       },
       {
-        "id": "003",
+        "id": 003,
         "item": "COCA COLA 1 Lt",
         "price": 18,
-        "categoryId": "1"
+        "categoryId": 1
       },
       {
-        "id": "004",
+        "id": 004,
         "item": "COCA COLA 2 Lts",
         "price": 30,
-        "categoryId": "1"
+        "categoryId": 1
       },
       {
-        "id": "005",
+        "id": 005,
         "item": "PAQUETE AMIGO INTERNET REDES SOCIALES",
         "price": 100,
-        "categoryId": "2"
+        "categoryId": 2
       },
       {
-        "id": "006",
+        "id": 006,
         "item": "PAQUETE AMIGO 100 INTERNET REDES SOCIALES",
         "price": 100,
-        "categoryId": "2"
+        "categoryId": 2
       },
       {
-        "id": "007",
+        "id": 007,
         "item": "PAQUETE AMIGO 150 INTERNET REDES SOCIALES",
         "price": 150,
-        "categoryId": "2"
+        "categoryId": 2
       },
       {
-        "id": "008",
+        "id": 008,
         "item": "PAQUETE AMIGO 200 INTERNET REDES SOCIALES",
         "price": 200,
-        "categoryId": "2"
+        "categoryId": 2
       },
 
       {
@@ -556,6 +529,4 @@
         "categoryId": 5
       }
 
-    ]
-  }
-}
+];

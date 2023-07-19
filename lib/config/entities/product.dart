@@ -1,14 +1,16 @@
 class Product {
-  final String id;
+  final int id;
   final String item;
   final double price;
-  final String categoryId;
+  final int categoryId;
 
   Product({
     required this.id,
     required this.item, 
     required this.price, 
     required this.categoryId});
+
+  
 
 
   

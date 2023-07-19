@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba_botones/providers/app_provider.dart';
 import 'package:prueba_botones/providers/cart_products_provider.dart';
+import 'package:prueba_botones/providers/categories_provider.dart';
 import 'package:prueba_botones/widgets/custom_button.dart';
 // import 'package:provider/provider.dart';
 // import 'package:prueba_botones/providers/app_provider.dart';
@@ -19,7 +20,7 @@ class DefaultView extends StatelessWidget {
             return const AddProductCategoryButton();
           }
           if ((index >= 1) && (index <= 4)) {
-            return const CategoryButton();
+            return CategoryButton(index: index-1,);
           }
           if (index == 5) {
             return const AllCategoriesButton();
@@ -38,36 +39,58 @@ class DefaultView extends StatelessWidget {
           if (index == 47) {
             return const AllOptions();
           }
-          if(index == 48){
+          if (index == 48) {
             return PrincipalButtons(
               color: const Color.fromARGB(255, 165, 133, 39),
-              onPressed: (){},
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Icon(Icons.people_alt, size: 35,color: Colors.white,),
+                  Icon(
+                    Icons.people_alt,
+                    size: 35,
+                    color: Colors.white,
+                  ),
                   SizedBox(width: 10),
-                  Text('Cerrar sesión', style: TextStyle(fontSize: 18,color: Colors.white,),)
+                  Text(
+                    'Cerrar sesión',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  )
                 ],
               ),
             );
           }
-          if(index == 49){
+          if (index == 49) {
             return PrincipalButtons(
               color: Colors.red[600]!,
-              onPressed: (){},
-              child: const Text('Devolucion', style: TextStyle(fontSize: 18,color: Colors.white,)),
+              onPressed: () {},
+              child: const Text('Devolucion',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  )),
             );
           }
-          if(index == 50){
+          if (index == 50) {
             return PrincipalButtons(
-              color:const Color.fromARGB(255, 39, 110, 41),
-              onPressed: (){},
-              child: const Text('Pagar', style: TextStyle(fontSize: 18,color: Colors.white,)),
+              color: const Color.fromARGB(255, 39, 110, 41),
+              onPressed: () {},
+              child: const Text('Pagar',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  )),
             );
           }
 
-          return  PrincipalButtons(color: Colors.black, onPressed: () {  }, child: Container(),);
+          return PrincipalButtons(
+            color: Colors.black,
+            onPressed: () {},
+            child: Container(),
+          );
         }),
       ),
     );
@@ -106,20 +129,25 @@ class AddProductCategoryButton extends StatelessWidget {
 //-------------------------------------------------------------------------------------------------------------------
 
 class CategoryButton extends StatelessWidget {
-  const CategoryButton({
+  int index;
+   CategoryButton({
+    this.index = 0,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
+    final categoryProvider = Provider.of<CategoriesProvider>(context);
+    List categories = categoryProvider.categories;
+
     return CustomButton(
       onPressed: () {
         provider.selectedView = provider.categoryView;
       },
       color: Colors.black87,
-      child: const Text(
-        'Category',
+      child: Text(
+        categories[index].category,
         style: TextStyle(color: Colors.white),
       ),
     );
@@ -248,15 +276,19 @@ class PrincipalButtons extends StatelessWidget {
   final Color color;
   final void Function() onPressed;
   final Widget child;
-  const PrincipalButtons({super.key, required this.color, required this.onPressed, required this.child});
+  const PrincipalButtons(
+      {super.key,
+      required this.color,
+      required this.onPressed,
+      required this.child});
 
   @override
   Widget build(BuildContext context) {
     return CustomPrincipalButton(
         onPressed: onPressed,
         color: color,
-        child:  Center(
-          child:child ,
+        child: Center(
+          child: child,
         ));
   }
 }

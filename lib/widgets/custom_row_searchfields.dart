@@ -18,8 +18,6 @@ class CustomRowSearchfields extends StatelessWidget {
   }
 }
 
-
-
 class TapClient extends StatelessWidget {
   
   const TapClient({super.key,});
@@ -36,7 +34,6 @@ class TapClient extends StatelessWidget {
                 autofocus: true,
                 iconButton: IconButton(
                   onPressed: (){
-
                     provider.defaultRowSearchFields = const DefaultRowSearchFields();
                   },
                   icon: const Icon(Icons.close),

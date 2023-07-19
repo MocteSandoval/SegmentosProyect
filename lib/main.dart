@@ -4,6 +4,8 @@ import 'package:prueba_botones/config/router/app_router.dart';
 import 'package:prueba_botones/config/theme/app_theme.dart';
 import 'package:prueba_botones/providers/app_provider.dart';
 import 'package:prueba_botones/providers/cart_products_provider.dart';
+import 'package:prueba_botones/providers/categories_provider.dart';
+import 'package:prueba_botones/providers/products_provider.dart';
 
 
 void main() {
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
       providers:  [
         ChangeNotifierProvider(create: (_) => AppProvider()),
         ChangeNotifierProvider(create: (_) => CartProductsProvider()),
+        ChangeNotifierProvider(create: (_) => ProductsProvider()..loadProducts()),
+        ChangeNotifierProvider(create: (_) => CategoriesProvider()..loadCategories()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
