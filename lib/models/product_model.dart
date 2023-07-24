@@ -5,9 +5,12 @@ class ProductModel {
   final String item;
   final double price;
   final int categoryId;
+  final int quantity = 1;
 
   ProductModel(
-      {required this.id,
+    {
+      quantity = 1,
+      required this.id,
       required this.item,
       required this.price,
       required this.categoryId});
@@ -17,8 +20,9 @@ class ProductModel {
         item: json["item"],
         price: json["price"].toDouble(),
         categoryId: json["categoryId"],
+        
       );
 
   Product toProductEntitie() =>
-      Product(id: id, item: item, price: price, categoryId: categoryId);
+      Product(id: id, item: item, price: price, categoryId: categoryId, quantity: quantity);
 }

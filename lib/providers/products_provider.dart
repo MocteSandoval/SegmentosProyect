@@ -25,4 +25,12 @@ class ProductsProvider extends ChangeNotifier {
     initialLoading = false;
     notifyListeners();
   }
+
+  //------------------------------------------------------------------------------------------------------------
+
+  void getProductSelected(Product product){
+    
+  }
+
+  
 }

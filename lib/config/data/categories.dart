@@ -1,27 +1,34 @@
+import 'package:prueba_botones/config/entities/product.dart';
+
 List<Map<String, dynamic>> categoriesD = [
        {
         "id": 1,
         "category": "Refrescos",
-        "products": []
+        "subcategory": [],
+        "products": <Product>[]
       },
       {
         "id": 2,
         "category": "Recargas",
-        "products": []
+        "subcategory": [],
+        "products": <Product>[]
       },
       {
         "id": 3,
         "category": "Medicinas",
-        "products": []
+        "subcategory": [],
+        "products":<Product> []
       },
       {
         "id": 4,
         "category": "Papeleria",
-        "products": []
+        "subcategory": [],
+        "products":<Product> []
       },
       {
         "id": 5,
         "category": "Varios",
-        "products": []
+        "subcategory": [],
+        "products":<Product> []
       }
 ];
